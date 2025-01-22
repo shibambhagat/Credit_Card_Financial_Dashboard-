@@ -1,5 +1,3 @@
-
-```sql
 -- 0. Create a database 
 CREATE DATABASE ccdb;
 
@@ -85,4 +83,3 @@ COPY cust_detail
 FROM 'D:\cust_add.csv' 
 DELIMITER ',' 
 CSV HEADER;
-```

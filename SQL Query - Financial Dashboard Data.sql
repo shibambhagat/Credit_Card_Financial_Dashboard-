@@ -1,10 +1,9 @@
--- SQL Query to create and import data from csv files:
 
+```sql
 -- 0. Create a database 
 CREATE DATABASE ccdb;
 
 -- 1. Create cc_detail table
-
 CREATE TABLE cc_detail (
     Client_Num INT,
     Card_Category VARCHAR(20),
@@ -26,9 +25,7 @@ CREATE TABLE cc_detail (
     Delinquent_Acc VARCHAR(5)
 );
 
-
--- 2. Create cc_detail table
-
+-- 2. Create cust_detail table
 CREATE TABLE cust_detail (
     Client_Num INT,
     Customer_Age INT,
@@ -47,52 +44,45 @@ CREATE TABLE cust_detail (
     Cust_Satisfaction_Score INT
 );
 
+-- 3. Copy CSV data into SQL (remember to update the file name and file location in below query)
 
--- 3. Copy csv data into SQL (remember to update the file name and file location in below query)
-
--- copy cc_detail table
-
+-- Copy cc_detail table
 COPY cc_detail
 FROM 'D:\credit_card.csv' 
 DELIMITER ',' 
 CSV HEADER;
 
-
--- copy cust_detail table
-
+-- Copy cust_detail table
 COPY cust_detail
 FROM 'D:\customer.csv' 
 DELIMITER ',' 
 CSV HEADER;
 
+-- If you encounter the following error:
+-- ERROR:  date/time field value out of range: "0"
+-- HINT:  Perhaps you need a different "datestyle" setting.
 
+-- Steps to resolve:
 
--- If you are getting below error, then use the below point:  
-   -- ERROR:  date/time field value out of range: "0"
-   -- HINT:  Perhaps you need a different "datestyle" setting.
+-- 1. Check the Data in Your CSV File: Ensure date column values are formatted correctly 
+-- and are in a valid format (e.g., YYYY-MM-DD).
 
--- Check the Data in Your CSV File: Ensure date column values are formatted correctly and are in a valid format that PostgreSQL can recognize (e.g., YYYY-MM-DD). And correct any incorrect or missing date values in the CSV file. 
-   -- or
--- Update the Datestyle Setting: Set the datestyle explicitly for your session using the following command:
+-- 2. Update the Datestyle Setting: Set the datestyle explicitly for your session:
 SET datestyle TO 'ISO, DMY';
 
--- Now, try to COPY the csv files!
+-- After making adjustments, retry the COPY command.
 
+-- 4. Insert additional data into SQL using the same COPY function
 
--- 4. Insert additional data into SQL, using same COPY function
-
--- copy additional data (week-53) in cc_detail table
-
+-- Copy additional data (week-53) into cc_detail table
 COPY cc_detail
 FROM 'D:\cc_add.csv' 
 DELIMITER ',' 
 CSV HEADER;
 
-
--- copy additional data (week-53) in cust_detail table (remember to update the file name and file location in below query)
-
+-- Copy additional data (week-53) into cust_detail table (remember to update the file name and file location)
 COPY cust_detail
 FROM 'D:\cust_add.csv' 
 DELIMITER ',' 
 CSV HEADER;
-
+```

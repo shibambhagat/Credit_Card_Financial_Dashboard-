@@ -138,7 +138,7 @@ CSV HEADER;
 ---
 
 ## Access the Dashboards
-- **Customer Dashboard**: [View Live Dashboard](https://app.powerbi.com/view?r=eyJrIjoiYTBhNzY0MWUtZDAwNS00MzMyLTk3MWYtNDc2MWRmY2Y1ZTBlIiwidCI6IjJmMTMyMWI5LTVkYWEtNDM4NC04NjBlLTMzODQwYTc0OWVmYiJ9)
+- **Live Dashboard**: [View Live Dashboard](https://app.powerbi.com/view?r=eyJrIjoiYTBhNzY0MWUtZDAwNS00MzMyLTk3MWYtNDc2MWRmY2Y1ZTBlIiwidCI6IjJmMTMyMWI5LTVkYWEtNDM4NC04NjBlLTMzODQwYTc0OWVmYiJ9)
 
 ---
 
